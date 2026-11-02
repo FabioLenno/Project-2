@@ -31,5 +31,14 @@ public class TripPoint {
     public static ArrayList<TripPoint> getTrip() {
     	return new ArrayList<>(trip);
     }
+    
+    public static void readFile(String filename) {
+    	trip.clear();
+    	try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+    	
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    }
 }
 
