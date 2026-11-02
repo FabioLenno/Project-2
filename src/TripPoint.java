@@ -84,5 +84,20 @@ public class TripPoint {
     	}
     	return total;
     }
+    
+    /**
+     * computes average speed between two points in km/h
+     * @param a the first trippoint
+     * @param b the second trippoint
+     * @return average speed in km/h
+     */
+    public static double avgSpeed(TripPoint a, TripPoint b) {
+    	double distance = haversineDistance(a,b);
+    	double timeInHours = Math.abs(a.getTime() - b.getTime()) / 60.0;
+    	if (timeInHours == 0.0) {
+    		return 0.0;
+    	}
+    	return distance / timeInHours;
+    }
 }
 
