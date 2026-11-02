@@ -62,5 +62,19 @@ public class TripPoint {
     	int endTime = trip.get(trip.size() - 1).getTime();
     	return (endTime - startTime) / 60.0;
     }
+    
+    public static double haversineDistance(TripPoint a, TripPoint b) {
+    	final double EARTH_RADIUS_KM = 6371.0;
+    	
+    	double lat1 = Math.toRadians(a.getLat());
+    	double lat2 = Math.toRadians(b.getLat());
+    	double deltaLat = Math.toRadians(b.getLat() - a.getLat());
+    	double deltaLon = Math.toRadians(b.getLon() - a.getLon());
+    	
+    	double hav = Math.pow(Math.sin(deltaLat / 2.0), 2) + Math.cos(lat1) * Math.cos(lat2) * Math.pow(Math.sin(deltaLon / 2.0), 2);
+    	double c = 2.0 * Math.atan2(Math.sqrt(hav), Math.sqrt(1.0 - hav));
+    	
+    	return EARTH_RADIUS_KM * c;
+    }
 }
 
