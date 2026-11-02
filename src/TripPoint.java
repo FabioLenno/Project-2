@@ -14,4 +14,16 @@ public class TripPoint {
     	this.lat = lat;
     	this.lon = lon;
     }
+    
+    public int getTime() {
+    	return this.time;
+    }
+    
+    public double getLat() {
+    	return this.lat;
+    }
+    
+    public double getLon() {
+    	return this.lon;
+    }
 }
