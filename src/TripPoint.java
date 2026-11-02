@@ -5,4 +5,7 @@ import java.util.ArrayList;
 
 public class TripPoint {
 
+	private double lat;
+    private double lon;
+    private int time;
 }
