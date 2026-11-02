@@ -35,7 +35,20 @@ public class TripPoint {
     public static void readFile(String filename) {
     	trip.clear();
     	try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
-    	
+    		String line;
+    		while ((line = br.readLine()) != null) {
+    			line = line.trim();
+    			if (line.isEmpty() || line.startsWith("Time")) {
+    				continue;
+    			}
+    			String[] parts = line.split(",");
+    			if (parts.length >= 3) {
+    				int time = Integer.parseInt(parts[0].trim());
+    				double lat = Double.parseDouble(parts[1].trim());
+    				double lon = Double.parseDouble(parts[2].trim());
+    				trip.add(new TripPoint(time, lat, lon));
+    			}
+    		}
     	} catch (IOException e) {
     		e.printStackTrace();
     	}
