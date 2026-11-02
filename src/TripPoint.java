@@ -53,5 +53,14 @@ public class TripPoint {
     		e.printStackTrace();
     	}
     }
+    
+    public static double totalTime() {
+    	if (trip.isEmpty()) {
+    		return 0.0;
+    	}
+    	int startTime = trip.get(0).getTime();
+    	int endTime = trip.get(trip.size() - 1).getTime();
+    	return (endTime - startTime) / 60.0;
+    }
 }
 
