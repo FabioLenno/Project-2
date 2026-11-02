@@ -8,6 +8,7 @@ public class TripPoint {
 	private double lat;
     private double lon;
     private int time;
+    private static ArrayList<TripPoint> trip = new ArrayList<>();
     
     public TripPoint(int time, double lat, double lon) {
     	this.time = time;
@@ -26,4 +27,9 @@ public class TripPoint {
     public double getLon() {
     	return this.lon;
     }
+    
+    public static ArrayList<TripPoint> getTrip() {
+    	return new ArrayList<>(trip);
+    }
 }
+
