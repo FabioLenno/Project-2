@@ -76,5 +76,13 @@ public class TripPoint {
     	
     	return EARTH_RADIUS_KM * c;
     }
+    
+    public static double totalDistance() {
+    	double total = 0.0;
+    	for (int i = 0; i < trip.size() - 1; i++) {
+    		total += haversineDistance(trip.get(i), trip.get(i + 1));
+    	}
+    	return total;
+    }
 }
 
